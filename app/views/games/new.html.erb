@@ -1,0 +1,19 @@
+
+<h1>New Game </h1>
+
+<div class="d-flex" m-3 p-3>
+<% @letters.each do |letter| %>
+<h1 class="letter" p-3 m-3>
+<%= letter %></h1>
+<% end %>
+</div>
+
+
+<p>What is the longest word you can spell?</p>
+
+<form action="/score" method="get" data-turbo="false">
+  <input type="text" name="word">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="submit" value="Play">
+</form>
